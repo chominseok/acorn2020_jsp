@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index.html</title>
+<link rel="stylesheet" href="/Web02_Servlet/css/bootstrap.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>인덱스 페이지 입니다.</h1>
+		<ul>    <!-- 링크 클릭은 보통 get 방식 -->
+			<li><a href="test2.jsp">testest</a></li>
+			<li><a href="hello">hello~</a></li>
+			<li><a href="ready">ready~</a></li>
+			<li><a href="time">현재시간 보기</a></li>
+			<!-- ${pageContext.request.contextPath }  jsp파일에서 contextPath 출력 -->
+			<!-- 일반 주소로 만들면 가상의 페이지를 sevlet을 만들어서 출력해줘야 하지만
+			     .jsp로 만들면 그 페이지를 실제로 만들어서 servlet을 따로 코딩하지 않아도 된다. 
+			    jsp로 페이지를 작성하면 xxxx.jsp > xxxx.jsp java코드로 해석된 뒤  > xxxx.jsp class로 인코딩된다. -->
+			<!-- servlet은 자바는 가능하지만 html 페이지가 만들기 힘듦 
+			 jsp 파일로 만들면 <%%> (출력시 <%out.println();%>) or (<%=%>)로 html과 자바를 모두 편하게 작성 가능 
+			   **** <%%>안에 작성된 내용은 그대로 출력됨.  -->
+			
+			<!-- context path는 코드상에 추가가 되어있으면 안된다. >> 나중에 설정에서 추가 or 제거하기 때문에, or 메소드나 참조값으로도 받아올 수 있어서     -->
+			
+			<li><a href="time.jsp">현재시간 보기(jsp)</a></li>
+			<li><a href="sub/fortune">오늘의 운세 보기</a></li>
+			<li><a href="sub/fortune.jsp">오늘의 운세 보기</a></li>
+			<li><a href="test">테스트하기</a></li>
+			<li><a href="todo/list">할 일 목록 보기</a></li>
+			<li><a href="todo/list.jsp">할 일 목록 보기(jsp)</a></li>
+			
+			<!-- 반복문을 돌 때 html을 작성하고 싶으면 <%for(){%>  html작성 <%}%> 해준다. -->
+			
+			<li><a href="member/list">회원 목록 보기</a></li>
+			<li><a href="member/list.jsp">회원 목록 보기(jsp)</a></li>
+			<li><a href="users/signup_form.jsp">회원가입 하러 가기(jsp)</a></li>
+		</ul>
+		<!-- action에서는 / 생략 -->
+		<!-- 보통 form에선 post방식을 쓰는게 일방적이다. -->
+		<form action="send" method="post">
+			<label for="msg">서버에 할 말을 입력</label>
+			<input type="text" name="msg" id="msg" ></input> <!--name이 전송되어서 servlet에 req로 얻을 수 있따. -->
+			<button type="submit">전송</button>
+		</form>
+		
+		<form action="send.jsp" method="post">
+			<label for="msg">서버에 할 말을 입력.jsp</label>
+			<input type="text" name="msg" id="msg" ></input> <!--name이 전송되어서 servlet에 req로 얻을 수 있따. -->
+			<button type="submit">전송</button>
+		</form>
+		
+		<h1>가상의 로그인 폼 입니다.</h1>
+		<form action="users/login" method="post">
+			<div class="form-group">
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id"/>  <!-- id는 label과 연결하기위해 존재
+															 name은 서버에 전송하기 위해서 존재	-->
+			</div>
+			
+			<div class="form-group">
+				<label for="pwd">비밀번호</label>
+				<input type="text" name="pwd" id="pwd"/>
+			</div>
+			<button class="btn btn-primary" type="submit">로그인</button>
+			<button class="btn btn-warning" type="reset">취소</button>
+		</form>
+		
+		<h1>가상의 로그인 폼 입니다.jsp</h1>
+		<form action="users/login.jsp" method="post">
+			<div class="form-group">
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id"/>  <!-- id는 label과 연결하기위해 존재
+															 name은 서버에 전송하기 위해서 존재	-->
+			</div>
+			
+			<div class="form-group">
+				<label for="pwd">비밀번호</label>
+				<input type="text" name="pwd" id="pwd"/>
+			</div>
+			<button class="btn btn-primary" type="submit">로그인</button>
+			<button class="btn btn-warning" type="reset">취소</button>
+		</form>
+	</div>
+</body>
+</html>

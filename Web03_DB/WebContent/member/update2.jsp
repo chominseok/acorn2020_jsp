@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 <title>Insert title here</title>
 <%
 	MemberDao dao = MemberDao.getInstance();

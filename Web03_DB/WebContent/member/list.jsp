@@ -27,6 +27,10 @@
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/test/test1.jsp">연습장!!</a></li>
 			</ul>
 		</div>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+			<li class="breadcrumb-item active"><a href="list.jsp">회원목록</a></li>
+		</ol>
 		<h1>회원 목록입니다.</h1>
 		
 		<table border = '1'>
@@ -45,14 +49,24 @@
 						<td><%=tmp.getNum() %></td>
 						<td><%=tmp.getName() %></td>
 						<td><%=tmp.getAddr() %></td>
-						<td><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
-						<td><a href="update.jsp?num=<%=tmp.getNum() %>&name=<%=tmp.getName() %>
-						&addr=<%=tmp.getAddr() %>">수정</a></td>
+						<%-- <td><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td> --%>
+						<td><a href="javascript:deleteConfirm(<%=tmp.getNum() %>);">삭제</a></td>
+						<td><a href="update.jsp?num=<%=tmp.getNum() %>">수정</a></td>
 					</tr>
 				<%} %>
 			</tbody>
 		</table>
 		<a href="insertForm.jsp">회원 추가하러 가기</a>
 	</div>
+	
+	<script>
+		//삭제 링클르 눌렀을 때 호출되는 함수
+		function deleteConfirm(num){
+			var isDelete = confirm(num+"번 글을 삭제 하시겠습니까?");
+			if(isDelete){
+				location.href="delete.jsp?num="+num;
+			}
+		}
+	</script>
 </body>
 </html>

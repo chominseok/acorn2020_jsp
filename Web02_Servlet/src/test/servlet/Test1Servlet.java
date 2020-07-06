@@ -38,21 +38,21 @@ public class Test1Servlet extends HttpServlet{
 		pw.println("<title>test</title>");
 		pw.println("</head>");
 		pw.println("<body>");
-		pw.println("table");
+		pw.println("<table border='1'>");
 			pw.println("<tr>");
 				pw.println("<th>번호</th>");
 				pw.println("<th>이름</th>");
 				pw.println("<th>주소</th>");
 			pw.println("</tr>");
 			
-			pw.println("<tr>");
 			for(MemberDto tmp : list) {
+				pw.println("<tr>");
 				pw.println(tmp.getNum()+" : "+tmp.getName()+" : "+tmp.getAddr());
 				pw.println("<td>"+tmp.getNum()+"</td>");
 				pw.println("<td>"+tmp.getName()+"</td>");
 				pw.println("<td>"+tmp.getAddr()+"</td>");
+				pw.println("</tr>");
 			}
-			pw.println("</tr>");
 		pw.println("/table");
 		pw.println("</body>");
 		pw.println("</html>");

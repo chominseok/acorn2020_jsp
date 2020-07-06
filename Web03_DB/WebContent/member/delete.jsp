@@ -16,8 +16,8 @@
 	//회원 목록보기 요청을 하도록 강요한다. (redirect)
 	String cPath = request.getContextPath();
 	
-	//response.sendRedirect(cPath+"/member/list.jsp");
-	response.sendRedirect("list.jsp");
+	response.sendRedirect(cPath+"/member/list.jsp");
+	//response.sendRedirect("list.jsp");
 %>
 </head>
 <body>

@@ -26,6 +26,64 @@ public class TestDao {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
+	TestDto dto;
+	
+	//select 구문
+	public TestDto selectEachDao(int num) {
+		
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT * FROM test"
+					+ " WHERE num = ?"
+					+ " ORDER BY num ASC";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new TestDto();
+				dto.setNum(rs.getInt("num"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)pstmt.close();
+				if(conn != null)conn.close();
+				if(rs != null)rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return dto;
+	}
+	
+	
+	//update 구문
+	public void updateDao(TestDto dto) {
+		
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "UPDATE test"
+					+ " SET content = ?, regdate = SYSDATE"
+					+ " WHERE num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getContent());
+			pstmt.setInt(2, dto.getNum());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)pstmt.close();
+				if(conn != null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	
 	//delete 구문

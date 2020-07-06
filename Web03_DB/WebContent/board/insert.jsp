@@ -23,7 +23,6 @@
 	boolean isSuccess = BoardDao.getInstance().insert(dto);
 %>
 	
-
 <body>
 	<h1>알림</h1>
 	<%if(isSuccess){ %>

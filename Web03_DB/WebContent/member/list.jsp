@@ -60,7 +60,7 @@
 	</div>
 	
 	<script>
-		//삭제 링클르 눌렀을 때 호출되는 함수
+		//삭제 링클를 눌렀을 때 호출되는 함수
 		function deleteConfirm(num){
 			var isDelete = confirm(num+"번 글을 삭제 하시겠습니까?");
 			if(isDelete){

@@ -37,6 +37,7 @@
 						<td><%=tmp.getNum() %></td>
 						<td><%=tmp.getContent() %></td>
 						<td><%=tmp.getRegdate() %></td>
+						<td><a href="TestUpdate.jsp?num=<%=tmp.getNum() %>">수정</a></td>
 						<td><a href="TestDelete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 					</tr>
 				<%} %>

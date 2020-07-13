@@ -40,7 +40,7 @@
 		<a href="updateform.jsp">개인정보 수정</a>
 		<a href="javascript:deleteConfirm()">탈퇴</a>
 	</div>
-
+	<a href="../../index.jsp">인덱스로 가기</a>
 <script>
 	function deleteConfirm(){
 		var isDelete = confirm("<%=id%> 회원님 탈퇴하시겠습니까?");

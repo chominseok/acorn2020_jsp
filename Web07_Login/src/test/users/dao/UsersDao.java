@@ -23,6 +23,71 @@ public class UsersDao {
 	ResultSet rs = null;
 	Connection conn = null;
 	
+	public boolean updateEmail(UsersDto dto) {
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+
+			String sql = "UPDATE users"
+					+ " set email = ?"
+					+ " WHERE id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getId());
+			flag = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//update문   set = 새 비밀번호 where id = ? and pwd = 옛날 비밀번호
+	
+	public boolean updatePwd2(UsersDto dto) {
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+
+			String sql = "UPDATE users"
+					+ " SET pwd = ?"
+					+ " WHERE id = ? AND pwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getNewPwd());
+			pstmt.setString(2, dto.getId());
+			pstmt.setString(3, dto.getPwd());
+			flag = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public UsersDto getPwd(String id) {
 		UsersDto dto = null;
 
@@ -58,35 +123,35 @@ public class UsersDao {
 		return dto;
 	}
 	
-	public boolean updatePwd(UsersDto dto) {
-		int flag = 0;
-		try {
-			conn = new DbcpBean().getConn();
-
-			String sql = "UPDATE users"
-					+ " SET pwd = ?"
-					+ " WHERE id = ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getPwd());
-			flag = pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		if (flag > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+//	public boolean updatePwd(UsersDto dto) {
+//		int flag = 0;
+//		try {
+//			conn = new DbcpBean().getConn();
+//
+//			String sql = "UPDATE users"
+//					+ " SET pwd = ?"
+//					+ " WHERE id = ?";
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, dto.getPwd());
+//			flag = pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				if (pstmt != null)
+//					pstmt.close();
+//				if (conn != null)
+//					conn.close();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		if (flag > 0) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 	
 	
 	
@@ -138,9 +203,9 @@ public class UsersDao {
 				dto.setProfile(rs.getString("profile"));
 				dto.setRegdate(rs.getString("regdate"));
 			}
-		} catch (Exception e) {
+			} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+			} finally {
 			try {
 				if (rs != null)
 					rs.close();

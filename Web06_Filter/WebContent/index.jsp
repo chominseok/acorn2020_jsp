@@ -19,7 +19,7 @@
 		//로그인 된 아이디 읽어오기
 		String id = (String)session.getAttribute("id");
 	
-		if(id== null){
+		if(id == null){
 	%>
 		<h1>가상의 로그인 폼</h1>
 		<form action="test/login.jsp" method="post">

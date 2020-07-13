@@ -14,13 +14,14 @@
 <body>
 	<div class="container">
 		<%if(id != null){ %>
-			<p><a href="users/info.jsp"><strong><%=id %></a>님 안녕하세요.</strong></p>
+			<p><a href="users/private/info.jsp"><strong><%=id %></a>님 안녕하세요.</strong></p>
 			<a href="users/logout.jsp">로그아웃하기</a>
 		<%}else{ %>
 			<h1>인덱스 페이지입니다.</h1>
 			<ul>
 				<li><a href="users/signup_form.jsp">회원가입</a></li>
 				<li><a href="users/loginform.jsp">로그인</a></li>
+				<li><a href="test/buy.jsp?code=111">111번 상품 구입 테스트</a></li>
 			</ul>
 		<%} %>
 	</div>

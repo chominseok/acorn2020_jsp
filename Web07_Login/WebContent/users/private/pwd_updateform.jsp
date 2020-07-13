@@ -20,7 +20,7 @@
 <body>
 	<div class="container">
 		<h1>비밀번호 수정하기</h1>
-		<form action="pwd_update.jsp" mehotd="post" id="myForm">
+		<form action="pwd_update.jsp" method="post" id="myForm">
 			<div class="form-group">
 				<input type="hidden" name = "pwd2" value="<%=dto.getPwd() %>" id="pwd2"/>
 				<label for="pwd">기존 비밀번호</label>
@@ -31,13 +31,14 @@
 				<input type="password" name="newPwd" id="newPwd"/>
 			</div>
 			<div class="form-group">
-				<label for="newPwd2">새 비밀번호</label>
-				<input type="password" name="newPwd2" id="newPwd2"/>
+				<label for="newPwd2">새 비밀번호 확인</label>
+				<input type="password" id="newPwd2"/>
 			</div>
 			<button type="submit">수정하기</button>
 		</form>
 	</div>
 	<script>
+	//form의 유효성은 js로 작성한다. 
 		$('#myForm').on("submit",function(){
 			var pwd1 = $('#newPwd').val();
 			var pwd2 = $('#newPwd2').val();

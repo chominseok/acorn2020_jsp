@@ -5,5 +5,7 @@
 	String phone = request.getParameter("phone");
 	
 	System.out.println(email+" || "+phone);
+	boolean result = true;
+	String name = "김구라";
 %>
-{"isSuccess", true}
+{"isSuccess", <%=result %>,"name", "<%=name %>"}

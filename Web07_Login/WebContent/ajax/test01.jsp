@@ -13,38 +13,63 @@
 	<button id="getBtn3">요청하기3</button>
 	<!--  contentType="application/json; charset=UTF-8"로 변경 -->
 	<script>
-	
-	// id 가 getBtn 인 곳에 "click" 이벤트가 일어났을때 호출되는 함수 등록
-	$("#getBtn").on("click", function(){
-		//jquery 의 기능을 이용해서 ajax  요청하기 
+	$('#getBtn').on('click',function(){
 		$.ajax({
-			method:"GET",
-			url:"${pageContext.request.contextPath }/ajax/getmsg.jsp",
-			data:"num=1&name=kimgura",
-			success:function(responseData){
-				console.log(responseData);
-				console.log("성공했습니다!");
+			method : "post",
+			url : "${pageContext.request.contextPath}/ajax/getmsg.jsp",
+			data : "num=1&name=kimgura",
+			success : function(data){
+				console.log(data);
+				var obj = JSON.parse(data);
+				console.log(obj.msg);
 			}
 		});
 	});
 	
 	$('#getBtn2').on('click',function(){
 		$.ajax({
-			method : "get",
-			url : "getmsg.jsp", //절대경로, 상대경로 가능
-			data : {num : 2, name : "해골"}, 			//요청 파라미터를 object로 전달해도 된다.
-			success : function(data){ //함수에 전달받는 변수명은 마음대로 작성가능
+			method : "post",
+			url : "${pageContext.request.contextPath}/ajax/getmsg.jsp",
+			data : {num : "메세지 삐리삐리!", name : "민석!"},
+			success : function(data){
+				console.log(data);
 				
-				console.log(data);    // >>>!! 위에 setContextType으로 text/html을 받아서 자동적으로
-							// object를 사용할 수 없다. >> //data는 jason 형식을 가지고 있는 string type이다.
-				//javascript에서 사용하려면 object로 바꿔서 사용해야된다.
 				var obj = JSON.parse(data);
-				console.log(obj);
-				//obj로 바꿨기 때문에 쉽게 사용할 수 있다.
-				alert(obj.msg);
+				console.log(obj.msg);
 			}
 		});
 	});
+	// id 가 getBtn 인 곳에 "click" 이벤트가 일어났을때 호출되는 함수 등록
+// 	$("#getBtn").on("click", function(){
+// 		//jquery 의 기능을 이용해서 ajax  요청하기 
+// 		$.ajax({
+// 			method:"GET",
+// 			url:"${pageContext.request.contextPath }/ajax/getmsg.jsp",
+// 			data:"num=1&name=kimgura",
+// 			success:function(responseData){
+// 				console.log(responseData);
+// 				console.log("성공했습니다!");
+// 			}
+// 		});
+// 	});
+	
+// 	$('#getBtn2').on('click',function(){
+// 		$.ajax({
+// 			method : "get",
+// 			url : "getmsg.jsp", //절대경로, 상대경로 가능
+// 			data : {num : 2, name : "해골"}, 			//요청 파라미터를 object로 전달해도 된다.
+// 			success : function(data){ //함수에 전달받는 변수명은 마음대로 작성가능
+				
+// 				console.log(data);    // >>>!! 위에 setContextType으로 text/html을 받아서 자동적으로
+// 							// object를 사용할 수 없다. >> //data는 jason 형식을 가지고 있는 string type이다.
+// 				//javascript에서 사용하려면 object로 바꿔서 사용해야된다.
+// 				var obj = JSON.parse(data);
+// 				console.log(obj);
+// 				//obj로 바꿨기 때문에 쉽게 사용할 수 있다.
+// 				alert(obj.msg);
+// 			}
+// 		});
+// 	});
 	
 	$("#getBtn3").on('click',function(){
 		$.ajax({

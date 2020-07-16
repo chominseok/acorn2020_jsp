@@ -19,7 +19,7 @@
 		  $('#sendBtn').on('click',function(){
 			  
 			  $.ajax({
-				  method : "post",
+				  method : "get",
 				  url : "send.jsp",
 				  data : {msg : $('#msg').val()},
 				  success : function(data){

@@ -9,7 +9,7 @@
 <body>
 	<h1>인덱스 페이지입니다.</h1>
 	<form action="test/insert.jsp" method="post">
-		<input type="text" name="msg" placholder="서버에 할 말 입력..."/>
+		<input type="text" name="msg" placeholder="서버에 할 말 입력..."/>
 		<button type="submit">전송</button>
 	</form>
 

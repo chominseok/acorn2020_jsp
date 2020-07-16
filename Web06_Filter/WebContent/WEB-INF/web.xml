@@ -25,8 +25,8 @@
   <!-- 인코딩 필터 맵핑하기(어떤 요청에 대해서 필터가 동작할지 알리기 -->
   <filter-mapping>
   	<filter-name>ef</filter-name>
-  	<url-pattern>/*</url-pattern> <!-- WebContent의 하위에 있는 모든 것들에 대해서 요청 -->
-  </filter-mapping>
+  	<url-pattern>/*</url-pattern> 
+ </filter-mapping>
 
 
 </web-app>

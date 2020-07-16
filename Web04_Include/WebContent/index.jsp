@@ -21,6 +21,8 @@
 		<li><a href="test5/game.jsp">game</a></li>
 		<li><a href="test5/study.jsp">study</a></li>
 		<li><a href="test6/home.jsp">navbar include example</a></li>
+		<li><a href="test.jsp">test</a></li>
+		<li><a href="test2.jsp">test2</a></li>
 	</ul>
 	</div>
 </body>

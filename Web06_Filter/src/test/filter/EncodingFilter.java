@@ -8,6 +8,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 /*
  * 	[요청을 가로채서 중간에 원하는 작업을 할 수 있는 필터 만들기 ]
  * 
@@ -15,6 +16,7 @@ import javax.servlet.ServletResponse;
  * 2.web.xml 문서에 필터를 정의하고 맵핑한다.
  * 3.doFilter() 메소드 안에서 원하는 작업을 한다.
  * */
+@WebFilter("/*")
 public class EncodingFilter implements Filter{
 	//인코딩 정보를 저장 할 필드 선언
 	private String encoding;

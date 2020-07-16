@@ -12,7 +12,7 @@
 <%
 	//로그인 후 가야하는 목적지 정보
 	String url = request.getParameter("url");
-	//목적지 정보도 미리 인콛이 해 놓는다.
+	//목적지 정보도 미리 인코딩이 해 놓는다.
 	String encodedUrl = URLEncoder.encode(url);
 	
 

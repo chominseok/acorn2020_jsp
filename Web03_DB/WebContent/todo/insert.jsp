@@ -21,7 +21,9 @@
 	dto.setWork(work);
 	dao.InsertTodo(dto);
 	
+	String cPath = request.getContextPath();
+	response.sendRedirect(cPath+"/todo/list.jsp");
 	%>
-	<p>할 일을 추가 했습니다.  <a href="list.jsp">확인 ㄱ</a></p>
+<!-- 	<p>할 일을 추가 했습니다.  <a href="list.jsp">확인 ㄱ</a></p> -->
 </body>
 </html>

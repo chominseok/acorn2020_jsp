@@ -18,6 +18,8 @@ public class FileDao {
 		}
 		return dao;
 	}
+	
+
 	//DB삭제하기
 	public boolean delete(int num) {
 		int flag = 0;

@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("utf-8");
+// 	request.setCharacterEncoding("utf-8");
 	MemberDto dto = (MemberDto)request.getAttribute("dto");
 	int num = dto.getNum();
 	String name = dto.getName();

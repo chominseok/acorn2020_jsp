@@ -14,7 +14,7 @@
 	//HttpSession 객체에 담는다. (session 영역에 담는다.)
 	session.setAttribute("nick", nick);
 	//새로운 요청을 받지 않았을 때 세션이 닫히는 시간을 설정한다.
-	session.setMaxInactiveInterval(10);
+	session.setMaxInactiveInterval(100);
 	/*
 	session 영역에 담은 데이터가 삭제되는 경우
 	

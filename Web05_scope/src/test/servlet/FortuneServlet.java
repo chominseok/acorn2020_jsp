@@ -34,5 +34,6 @@ public class FortuneServlet extends HttpServlet{
 		//jsp 페이지로 응답을 위임한다.(forward 이동)
 		RequestDispatcher rd = req.getRequestDispatcher("/test/fortune.jsp");
 		rd.forward(req, resp);
+		
 	}
 }

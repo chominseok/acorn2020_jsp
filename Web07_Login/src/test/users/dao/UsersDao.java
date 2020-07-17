@@ -22,18 +22,19 @@ public class UsersDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	Connection conn = null;
-	
+
 	public boolean updateEmail(UsersDto dto) {
 		int flag = 0;
 		try {
 			conn = new DbcpBean().getConn();
 
 			String sql = "UPDATE users"
-					+ " set email = ?"
+					+ " set email = ?,profile = ?"
 					+ " WHERE id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getEmail());
-			pstmt.setString(2, dto.getId());
+			pstmt.setString(2, dto.getProfile());
+			pstmt.setString(3, dto.getId());
 			flag = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../include/navbar.jsp">
+	<jsp:include page="home.jsp">
 		<jsp:param value="game" name="thisPage"/>
 	</jsp:include>
 	<h1>game.jsp입니다.</h1>

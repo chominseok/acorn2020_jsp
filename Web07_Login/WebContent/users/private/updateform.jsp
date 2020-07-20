@@ -29,9 +29,9 @@
 	<div class="container">
 		<h1>회원정보 수정 폼 입니다.</h1>
 		<%if(dto.getProfile() == null){ %>
-			<img id="profileImage" src="${pageContext.request.contextPath }/images/kim1.png"/>
+		<a id="profileLink" href="javascript:"><img id="profileImage" src="${pageContext.request.contextPath }/images/kim1.png"/></a>
 		<%}else{ %>
-			<img id="profileImage" src="${pageContext.request.contextPath }<%=dto.getProfile()%>"/>
+		<a id="profileLink" href="javascript:"><img id="profileImage" src="${pageContext.request.contextPath }<%=dto.getProfile()%>"/></a>
 		<%} %>
 		<form action="update.jsp" method="post">
 			<input type="hidden" name="profile" id="profile" value="<%=dto.getProfile()%>"/>
@@ -52,7 +52,7 @@
 		</form>
 	</div>
 	<script>
-		$('#profileImage').on('click',function(){
+		$('#profileLink').on('click',function(){
 			//input type="file" 을 클릭한다. >> img를 선택하면 change event 가 실행된다.
 			$('#image').click();	
 		});

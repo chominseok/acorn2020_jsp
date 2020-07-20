@@ -7,6 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#profileImage{
+		width : 50px;
+		heigth : 50px;
+		border : 1px solid black;
+		border-radius : 50%;  
+	}
+</style>
 </head>
 <%
 	String id = (String)session.getAttribute("id");
@@ -22,8 +30,9 @@
 				<tr>
 					<th>아이디</th>
 					<th><a href="pwd_updateform.jsp">비밀번호</a></th>
+					<th>프로필 이미지</th>
 					<th>이메일</th>
-					<th>???</th>
+					<th>업로드 경로</th>
 					<th>가입 날짜</th>
 				</tr>
 			</thead>
@@ -31,6 +40,7 @@
 				<tr>
 					<td><%=id %></td>
 					<td><%=dto.getPwd() %></td>
+					<td><img id="profileImage" src="${pageContext.request.contextPath}<%=dto.getProfile()%>"></td>
 					<td><%=dto.getEmail() %></td>
 					<td><%=dto.getProfile() %></td>
 					<td><%=dto.getRegdate() %></td>

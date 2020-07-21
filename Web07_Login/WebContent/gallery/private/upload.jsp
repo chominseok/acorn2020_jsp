@@ -54,10 +54,7 @@
         List<FileItem> formItems = upload.parseRequest(request);
         //폼전송된 아이템이 존재 한다면 
         if (formItems != null && formItems.size() > 0) {
-        	//파일 정보를 담을 Dto 객체 생성
 
-        	
-        	
             //반복문 돌면서 FileItem 객체를 불러온다. 
             for (FileItem item : formItems) {
             	

@@ -6,7 +6,7 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="application/json; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%
 	//업로드 설정
@@ -52,7 +52,7 @@
         List<FileItem> formItems = upload.parseRequest(request);
         //폼전송된 아이템이 존재 한다면 
         if (formItems != null && formItems.size() > 0) {
-
+        	
             //반복문 돌면서 FileItem 객체를 불러온다. 
             for (FileItem item : formItems) {
             	
@@ -68,7 +68,7 @@
                 	//파일을 파일시스템에 저장한다.
                     File storeFile = new File(filePath);
                     item.write(storeFile);
-                          
+ 
                     //이미지 경로
                     imageSrc = "/upload/"+saveFileName;
                 }else{//폼 필드라면 
@@ -88,21 +88,8 @@
      
         System.out.println(ex.getMessage());
     }
-   
+   String msg = request.getParameter("msg");
+   System.out.println(msg);
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>/gallery/test_upload.jsp</title>
-</head>
-<body>
-<div class="container">
-	<h1><%=title %></h1>
-	<img src="${pageContext.request.contextPath }<%=imageSrc %>"/>
-</div>
-</body>
-</html>
-
-
+{"imageSrc":"<%=imageSrc %>"}
 

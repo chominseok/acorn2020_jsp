@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="application/jason; charset=UTF-8"
+<%@ page language="java" contentType="application/json; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String email = request.getParameter("email");
@@ -8,4 +8,4 @@
 	boolean result = true;
 	String name = "김구라";
 %>
-{"isSuccess", <%=result %>,"name", "<%=name %>"}
+{"isSuccess": <%=result %>,"name": "<%=name %>","email" : "<%=email%>"}

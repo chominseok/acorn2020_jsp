@@ -16,6 +16,7 @@
 %>
 <body>
 	<div class="container">
+	<a href="../index.jsp">인덱스</a>
 		<a href="private/upload_form.jsp">업로드 하러 가기</a>
 		<h1>갤러리 목록 입니다.</h1>
 		<%for(GalleryDto tmp : list){ %>

@@ -10,6 +10,7 @@
 </head>
 <body>
 	<a href="../index.jsp">인덱스로</a>
+	<a href="imgGallery.jsp">이미지 갤러리 </a>
 	<h1>기본 form 전송으로 이미지 업로드 하기</h1>
 	<form action="upload.jsp" method="post" enctype="multipart/form-data">
 		<input type="text" name="msg"/>

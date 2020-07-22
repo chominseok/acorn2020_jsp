@@ -16,3 +16,14 @@ CREATE TABLE board_gallery(
 );
 
 CREATE SEQUENCE board_gallery_seq;
+
+CREATE TABLE board_cafe(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100) NOT NULL,
+	title VARCHAR2(100) NOT NULL,
+	content CLOB,
+	viewcount NUMBER,
+	regdate date
+);
+
+CREATE SEQUENCE board_cafe_seq;

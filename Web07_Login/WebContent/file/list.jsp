@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/file/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 <style>
 	.page-display a{
 		text-decoration: none;
@@ -99,11 +100,11 @@
 	int totalPageCount=
 			(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);
 	//시작 페이지 번호
-	int startPageNum=
+	int startPageNum=   //정수를 정수로 나눠봐야 실수가 아니기 때문에 pageNum = 1~5 사이에서는 다 1페이지가 시작 번호
 		1+((pageNum-1)/PAGE_DISPLAY_COUNT)*PAGE_DISPLAY_COUNT;
 	//끝 페이지 번호
 	int endPageNum=startPageNum+PAGE_DISPLAY_COUNT-1;
-	//끝 페이지 번호가 잘못된 값이라면 
+	//끝 페이지 번호가 잘못된 값이라면   항상 글의 갯수가 맞춰져 있지 않기 떄문에 있는 만큼의 페이지를 끝 페이지로 설정한다.
 	if(totalPageCount < endPageNum){
 		endPageNum=totalPageCount; //보정해준다. 
 	}
@@ -112,8 +113,8 @@
 	<a href="private/upload_form.jsp">파일 업로드</a>
 	<a href="../index.jsp">인덱스</a>
 	<h1>파일 목록입니다.</h1>
-	<table>
-		<thead>
+	<table class="table table-striped table-sm">
+		<thead class="thead-dark">
 			<tr>
 				<th>번호</th>
 				<th>작성자</th>
@@ -143,19 +144,19 @@
 		</tbody>
 	</table>
 	<div class="page-display">
-		<ul>
+		<ul class="pagination">
 		<%if(startPageNum != 1){ %>
-			<li><a href="list.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Prev</a></li>
+			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Prev</a></li>
 		<%} %>
 		<%for(int i=startPageNum; i<=endPageNum; i++){ %>
 			<%if(i==pageNum){ %>
-				<li class="active"><a href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
+				<li class="active page-item"><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
 			<%}else{%>
-				<li><a href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
+				<li><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
 			<%} %>
 		<%} %>	
 		<%if(endPageNum < totalPageCount){ %>
-			<li><a href="list.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Next</a></li>
+			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Next</a></li>
 		<%} %>
 		</ul>
 	</div>

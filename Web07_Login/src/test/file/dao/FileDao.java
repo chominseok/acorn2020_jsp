@@ -64,8 +64,8 @@ public class FileDao {
 	
 	
 	public int getCountTF(FileDto dto) {
-		//전체 row의 갯수를 담을 지역 변수
-		int count = 0;
+		//전체 row  의 갯수를 담을 지역 변수 
+		int count=0;
 		//필요한 객체의 참조값을 담을 지역변수 만들기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,11 +73,10 @@ public class FileDao {
 		try {
 			//Connection 객체의 참조값 얻어오기 
 			conn = new DbcpBean().getConn();
-			//실행할 sql 문 준비하기
-			
-			//ROW 중 가장 큰 숫자를 얻어오면 전체 ROW의 갯수가 된다.
-			//ROW 가 NULL 일 때 0으로 바꿔준다.
-			String sql = "SELECT NVL(MAX(ROWNUM),0) num"
+			//ROWNUM 중에서 가장 큰 숫자를 얻어오면 전체 row  의 갯수가 된다. 
+			//혹시 row 가 하나도 없으면 null 이 얻어와 지기때문에  null 인 경우 0 으로 
+			//바꿔 줘야 한다.
+			String sql = "SELECT NVL(MAX(ROWNUM), 0) AS num"
 					+ " FROM board_file"
 					+ " WHERE title LIKE '%'||?||'%' OR orgFileName LIKE '%'||?||'%'";
 			pstmt = conn.prepareStatement(sql);
@@ -86,9 +85,9 @@ public class FileDao {
 			pstmt.setString(2, dto.getOrgFileName());
 			//select 문 수행하고 결과 받아오기 
 			rs = pstmt.executeQuery();
-			//반복문 돌면서 결과 값 추출하기 
+			//결과 값 추출하기 
 			if (rs.next()) {
-				count = rs.getInt("num");  //num은 NVL(MAX(ROWNUM),0)의 별칭
+				count=rs.getInt("num");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

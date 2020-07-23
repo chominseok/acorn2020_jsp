@@ -58,12 +58,14 @@
 		검색 키워드에 관련된 처리 
 	*/
 	String keyword=request.getParameter("keyword");
+	String condition=request.getParameter("condition");
 	if(keyword==null){//전달된 키워드가 없다면 
 		keyword=""; //빈 문자열을 넣어준다. 
+		condition="";
 	}
 	//인코딩된 키워드를 미리 만들어 둔다. 
 	String encodedK=URLEncoder.encode(keyword);
-	String condition=request.getParameter("condition");
+	
 	//검색 키워드와 startRowNum, endRowNum 을 담을 FileDto 객체 생성
 	FileDto dto=new FileDto();
 	dto.setStartRowNum(startRowNum);
@@ -91,8 +93,6 @@
 			totalRow=FileDao.getInstance().getCountW(dto);
 		}
 	}else{//검색 키워드가 없으면 전체 목록을 얻어온다.
-		condition="";
-		keyword="";
 		list=FileDao.getInstance().getList(dto);
 		totalRow=FileDao.getInstance().getCount();
 	}	

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 //web.xml에 필터 정의와 필터 맵핑을 어노테이션을 이용해서 할 수 있다. >>param이 필요하면? 있으면 xml에
 //,"test/*"
-@WebFilter({"/users/private/*","/test/*","/file/private/*","/gallery/private/*"})
+@WebFilter({"/users/private/*","/test/*","/file/private/*","/gallery/private/*","/cafe/private/*"})
 public class LoginFilter implements Filter{
 
 	@Override

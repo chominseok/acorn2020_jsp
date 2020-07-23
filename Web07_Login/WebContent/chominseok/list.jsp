@@ -11,9 +11,10 @@
 <body>
 	<a href="../index.jsp">인덱스로</a>
 	<a href="imgGallery.jsp">이미지 갤러리 </a>
+	
 	<h1>기본 form 전송으로 이미지 업로드 하기</h1>
+	
 	<form action="upload.jsp" method="post" enctype="multipart/form-data">
-		<input type="text" name="msg"/>
 		<input type="text" name="title" placeholder="그림 설명..."/>
 		<input type="file" name="image" accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
 		<button type="submit">업로드</button>
@@ -22,6 +23,7 @@
 	<br>
 	
 	<h1>ajax form plugIn 사용해서 이미지 업로드 하기</h1>
+	
 	<form id="aForm" action="upload2.jsp" method="post" enctype="multipart/form-data">
 		<input type="text" name="title" placeholder="그림 설명..."/>
 		<input type="file" name="image" accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
@@ -32,12 +34,14 @@
 	
 	<script>
 		$('#aForm').ajaxForm(function(data){
+			console.log(data.title);
 			console.log(data.imageSrc);
-			
+			$("<p>").text(data.title).appendTo(".imgBoard");  
 			$("<img/>").attr("src","${pageContext.request.contextPath}"+data.imageSrc)
 			.appendTo(".imgBoard");  
 		});
-
 	</script>
+	
+	
 </body>
 </html>

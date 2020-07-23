@@ -26,6 +26,7 @@
 		});
 	});
 	
+	
 	$('#getBtn2').on('click',function(){
 		$.ajax({
 			method : "post",
@@ -39,6 +40,18 @@
 			}
 		});
 	});
+	
+	$('#getBtn3').on('click',function(){
+		$.ajax({
+			method : "get",
+			url : "getgreet.jsp",
+			success : function(data){
+				console.log(data);
+				console.log(data.greet);
+			}
+		});
+	});
+
 	// id 가 getBtn 인 곳에 "click" 이벤트가 일어났을때 호출되는 함수 등록
 // 	$("#getBtn").on("click", function(){
 // 		//jquery 의 기능을 이용해서 ajax  요청하기 
@@ -71,18 +84,18 @@
 // 		});
 // 	});
 	
-	$("#getBtn3").on('click',function(){
-		$.ajax({
-			method : "get",
-			url : "getgreet.jsp", 
-			//data : 요청 파라미터가 없으면 전달하지 않아도 된다.
-			success : function(data){
-				console.log(data);
-				console.log(data.greet);
-				alert(data.greet);
-			}
-		});
-	});
+// 	$("#getBtn3").on('click',function(){
+// 		$.ajax({
+// 			method : "get",
+// 			url : "getgreet.jsp", 
+// 			//data : 요청 파라미터가 없으면 전달하지 않아도 된다.
+// 			success : function(data){
+// 				console.log(data);
+// 				console.log(data.greet);
+// 				alert(data.greet);
+// 			}
+// 		});
+// 	});
 </script>
 </body>
 </html>

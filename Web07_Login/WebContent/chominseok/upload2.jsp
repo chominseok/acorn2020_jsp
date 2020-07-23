@@ -88,8 +88,6 @@
      
         System.out.println(ex.getMessage());
     }
-   String msg = request.getParameter("msg");
-   System.out.println(msg);
 %>
-{"imageSrc":"<%=imageSrc %>"}
+{"imageSrc":"<%=imageSrc %>", "title" : "<%=title%>"}
 

@@ -122,6 +122,7 @@
 				</td>
 				<td><%=tmp.getViewCount() %></td>
 				<td><%=tmp.getRegdate() %></td>
+<!-- 				id.equals(tmp.getWriter()) -->
 				<%if(tmp.getWriter().equals(id)){ %>
 					<td><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 				<%} %>

@@ -13,45 +13,44 @@
 	<button id="getBtn3">요청하기3</button>
 	<!--  contentType="application/json; charset=UTF-8"로 변경 -->
 	<script>
-	$('#getBtn').on('click',function(){
-		$.ajax({
-			method : "post",
-			url : "${pageContext.request.contextPath}/ajax/getmsg.jsp",
-			data : "num=1&name=kimgura",
-			success : function(data){
-				console.log(data);
-				var obj = JSON.parse(data);
-				console.log(obj.msg);
-			}
-		});
-	});
-	
-	
-	$('#getBtn2').on('click',function(){
-		$.ajax({
-			method : "post",
-			url : "${pageContext.request.contextPath}/ajax/getmsg.jsp",
-			data : {num : "메세지 삐리삐리!", name : "민석!"},
-			success : function(data){
-				console.log(data);
-				
-				var obj = JSON.parse(data);
-				console.log(obj.msg);
-			}
-		});
-	});
-	
 	$('#getBtn3').on('click',function(){
 		$.ajax({
-			method : "get",
+			method : "post",
 			url : "getgreet.jsp",
 			success : function(data){
-				console.log(data);
 				console.log(data.greet);
 			}
 		});
 	});
-
+	
+	$('#getBtn2').on('click',function(){
+		$.ajax({
+			method : "post",
+			url : "getmsg.jsp",
+			data : {num : 1, name : "chominseok"},
+			success : function(data){
+				console.log(data);
+				var obj = JSON.parse(data);
+				console.log(obj.msg);
+			}
+		});
+	});
+	
+	$('#getBtn').on('click',function(){
+		$.ajax({
+			method : "get",
+			url : "getmsg.jsp",
+			data : "num=1&name=chominseok",
+			success : function(data){
+				console.log(data);
+				var obj = JSON.parse(data);
+				console.log(obj);
+				console.log(obj.msg);
+			}
+		});
+	});
+	
+	
 	// id 가 getBtn 인 곳에 "click" 이벤트가 일어났을때 호출되는 함수 등록
 // 	$("#getBtn").on("click", function(){
 // 		//jquery 의 기능을 이용해서 ajax  요청하기 

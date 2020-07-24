@@ -36,77 +36,66 @@
 
 </body>
 </html>
-<%--
-	[ SmartEditor 를 사용하기 위한 설정 ]
-	
-	1. WebContent 에 SmartEditor  폴더를 복사해서 붙여 넣기
-	2. WebContent 에 upload 폴더 만들어 두기
-	3. WebContent/WEB-INF/lib 폴더에 
-	   commons-io.jar 파일과 commons-fileupload.jar 파일 붙여 넣기
-	4. <textarea id="content" name="content"> 
-	   content 가 아래의 javascript 에서 사용 되기때문에 다른 이름으로 바꾸고 
-	      싶으면 javascript 에서  content 를 찾아서 모두 다른 이름으로 바꿔주면 된다. 
-	5. textarea 의 크기가 SmartEditor  의 크기가 된다.
-	6. 폼을 제출하고 싶으면  submitContents(this) 라는 javascript 가 
-	      폼 안에 있는 버튼에서 실행되면 된다.
- --%>
-<!-- SmartEditor 에서 필요한 javascript 로딩  -->
-<script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
-<script>
-	var oEditors = [];
-	
-	//추가 글꼴 목록
-	//var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
-	
-	nhn.husky.EZCreator.createInIFrame({
-		oAppRef: oEditors,
-		elPlaceHolder: "content",
-		sSkinURI: "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",	
-		htParams : {
-			bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-			bUseVerticalResizer : true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-			bUseModeChanger : true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-			//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
-			fOnBeforeUnload : function(){
-				//alert("완료!");
-			}
-		}, //boolean
-		fOnAppLoad : function(){
-			//예제 코드
-			//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
-		},
-		fCreator: "createSEditor2"
-	});
-	
-	function pasteHTML() {
-		var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-		oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
-	}
-	
-	function showHTML() {
-		var sHTML = oEditors.getById["content"].getIR();
-		alert(sHTML);
-	}
-		
-	function submitContents(elClickedObj) {
-		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
-		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("content").value를 이용해서 처리하면 됩니다.
-		
-		try {
-			elClickedObj.form.submit();
-		} catch(e) {}
-	}
-	
-	function setDefaultFont() {
-		var sDefaultFont = '궁서';
-		var nFontSize = 24;
-		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
-	}
-</script>
+<%
+// public List<BoardDto> getListMainRc(){
+// 	//필요한 객체의 참조값을 담을 지역변수 만들기 
+// 	List<BoardDto> list = new ArrayList<>();	
+// 	Connection conn = null;
+// 	PreparedStatement pstmt = null;
+// 	ResultSet rs = null;
+// 	try {
+// 		//Connection 객체의 참조값 얻어오기 
+// 		conn = new DbcpBean().getConn();
+// 		//실행할 sql 문 준비하기
+// 		String sql = "SELECT sname, imageSrc"
+// 				+ " FROM store"
+// 				+ "	WHERE sname = ?";
+// 		pstmt = conn.prepareStatement(sql);
+// 		//sql 문에 ? 에 바인딩할 값이 있으면 바인딩하고 
+// 		pstmt.setString(1,dto.getSname());
+// 		//select 문 수행하고 결과 받아오기 
+// 		rs = pstmt.executeQuery();
+// 		//반복문 돌면서 결과 값 추출하기 
+// 		while (rs.next()) {
+// 			BoardDto tmp = new BoardDto();
 
+// 			tmp.setWriter(rs.getString("sname"));
+// 			tmp.setCaption(rs.getString("imageSrc"));
+			
+// 			list.add(tmp);
+// 		}
+// 	} catch (Exception e) {
+// 		e.printStackTrace();
+// 	} finally {
+// 		try {
+// 			if (rs != null)
+// 				rs.close();
+// 			if (pstmt != null)
+// 				pstmt.close();
+// 			if (conn != null)
+// 				conn.close();
+// 		} catch (Exception e) {
+// 		}
+// 	}
+// 	return list;
+// }
+	
 
+// 	List<BoardDto> list = BoardDao.getInstance().getListMainRc();
+<%-- %> --%>
 
+<!-- <div class="row"> -->
+<%-- 	<%for(BoardDto tmp : list){ %> --%>
+<!-- 		<div class="col-md-4"> -->
+<!--        	 	<div class="card mb-4 shadow-sm"> -->
+<%--        			<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="<%=imgSrc %>" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> --%>
+<!--        			<div class="card-body"> -->
+<%--          			<p class="card-text"><%=title %></p> --%>
+<!--        			</div> -->
+<!--      		</div> -->
+<!--    		</div> -->
+<%-- 	<%} %> --%>
+<!-- </div> -->
 
 
 

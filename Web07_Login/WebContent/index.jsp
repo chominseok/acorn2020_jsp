@@ -35,9 +35,16 @@
 			<li><a href="test/editor.jsp">SmartEditor</a></li>
 			<li><a href="cafe/list.jsp">카페 글 목록 보기</a></li>
 			<li><a href="test/scroll.jsp">scroll 테스트</a></li>
+			<li><a href="test/cookie_form.jsp">cookie test1</a></li>
+			<li><a href="test/cookie_form2.jsp">cookie test2</a></li>
+			<li><a href="test/cookie_form3.jsp">cookie test3</a></li>
+			<li><a href="test/popup.jsp">팝업 test1</a></li>
+			<li><a href="test/popup2.jsp">팝업 test2</a></li>
 			<li><a href="chominseok/list.jsp">조민석 테스트</a></li>
+			<li><a href="chominseok/cookie.jsp">조민석 쿠키 테스트</a></li>
+			<li><a href="test/el_test.jsp">EL test</a></li>
+			<li><a href="test/jstl_test.jsp">jstl test</a></li>
 		</ul>
-		
 	</div>
 </body>
 </html>

@@ -88,7 +88,7 @@
      
         System.out.println(ex.getMessage());
     }
-   
+   System.out.println(imageSrc);
 %>
 {"imageSrc":"<%=imageSrc %>"}
 

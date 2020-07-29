@@ -66,7 +66,7 @@
 	<p>회사 이름은 ${companyName }</p>
 	
 	<h1>EL로 request scope에 담긴 dto의 정보 출력</h1>
-	<p>번호 : ${requestScope.dto.getNum() }</p>   //원래 dto. 찍으면 안뜨나???
+	<p>번호 : ${requestScope.dto.getNum() }</p>   
 	<p>번호 : ${dto.getNum() }</p>
 	<p>번호 : ${dto.num }</p>
 	<br>

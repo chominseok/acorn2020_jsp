@@ -47,7 +47,7 @@
 			<button type="reset">취소</button>
 		</form>
 		
-		<form id="profileForm" action="profile_upload.jsp" method="post" enctyp="multipart/form-data">
+		<form id="profileForm" action="profile_upload.jsp" method="post" enctype="multipart/form-data">
 			<input style="display : none;" id="image" type="file" name="image" accept=".jpg, .jpeg, .JPG, .JPEG"/>
 		</form>
 	</div>

@@ -37,5 +37,18 @@
 	<c:forEach  var="i" items="${list }" >
 		<p>${i }</p>
 	</c:forEach>
+	
+	<h1>test</h1>
+	<c:forEach  var="i" items="${list }" varStatus="status">
+		<p>${i } : <strong>${status.first }</strong></p>
+	</c:forEach>
+	
+	<ul>
+	<c:forEach var="tmp" items="${list }" varStatus="status">
+		<li data-index="${status.count }">${tmp } <strong>${status.count}</strong></li>
+	</c:forEach>
+	</ul>
+	
+	<a href="jstl_test3.jsp">다음 예제</a>
 </body>
 </html>

@@ -42,6 +42,8 @@
 			<li><a href="chominseok/cookie.jsp">조민석 쿠키 테스트</a></li>
 			<li><a href="test/el_test.jsp">EL test</a></li>
 			<li><a href="test/jstl_test.jsp">jstl test</a></li>
+			<li><a href="test/regular_ex.jsp">정규표현식 테스트</a></li>
+			<li><a href="test/test.jsp">test</a></li>
 		</ul>
 	</div>
 </body>

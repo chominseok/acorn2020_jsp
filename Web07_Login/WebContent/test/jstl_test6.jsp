@@ -21,5 +21,6 @@
 	<h1>jstl 함수 사용해 보기</h1>
 <%-- 	<c:set var="newLine" value="\n"/> --%>
 	<p>${fn: replace(content, newLine, '<br/>') }</p>
+	<p>${fn: replace(param.content, newLine, '<br/>') }</p>
 </body>
 </html>

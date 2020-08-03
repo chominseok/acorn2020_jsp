@@ -25,9 +25,9 @@
 <%
 	//list에 담긴 키 값 얻어오기
 	List<String> list = (List<String>)request.getAttribute("list");
-	for(String tmp : list){
+	for(String tmp : names){
 %>
- 		<p><%=tmp %></p> 
+ 		<p><%=tmp %>;;</p> 
 <%  } %>
 	
 	

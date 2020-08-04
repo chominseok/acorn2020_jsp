@@ -53,6 +53,32 @@
 			
 			isFormValid = isIdValid && isPhoneValid;
 			alert(isFormValid);
+			if(!isIdValid && !isPhoneValid){
+				$('#phoneFeedback').fadeIn(1000);
+				
+				$('#idFeedback').fadeIn(1000);
+				
+				$('#id').focus();
+				
+				return false;
+			}else if(!isIdValid){
+				//1.에러 메세지를 띄우고
+// 				alert('영문자 소문자로 시작을 하고 5~10글자 이내로 작성하세요.');
+// 				$('.error-feedback').css('display','block');
+				$('#idFeedback').fadeIn(1000);
+				//2.잘못 입력한 곳으로 focus를 주고
+				$('#id').focus();
+				//3.폼이 전송되지 않도록 막아준다.
+				return false;
+			}else if(!isPhoneValid){
+				$('#phoneFeedback').fadeIn(1000);
+				
+				$('#phone').focus();
+				
+				return false;
+			}
+			
+			/*
 			if(!isIdValid){
 				//1.에러 메세지를 띄우고
 // 				alert('영문자 소문자로 시작을 하고 5~10글자 이내로 작성하세요.');
@@ -71,6 +97,7 @@
 				
 				return false;
 			}
+			*/
 		});
 	</script>
 	<a href="regular_ex5.jsp">다음예제</a>

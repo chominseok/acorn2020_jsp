@@ -21,7 +21,7 @@
 			var msg = $('#inputMsg').val();
 			//반목문을 돌면서 정규표현식에 부합하는 문자열을 모두 추출한다.
 			while(true){
-				var result = reg.exec(msg);
+				var result = reg.exec(msg);  // .exec는 배열을 반환하고 값이 없으면 NULL을 반환
 				if(result == null){
 					break;
 				}

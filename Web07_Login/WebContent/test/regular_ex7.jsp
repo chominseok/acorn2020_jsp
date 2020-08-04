@@ -23,15 +23,12 @@
 				<label for="phone">휴대폰 번호</label>
 				<input class="form-control" type="text" id="phone" name="phone" placeholder="핸드폰 번호입력"/>
 				<div class="invalid-feedback">
-<!-- 				invalid-feedback을 쓰고 요소에 is-valid나 is-invalid class를 추가하면 
-					사용할 수 있음                                                 										 -->
 					휴대폰 형식에 맞게 입력하세요.
 				</div>
 			</div>
 			<button class=" btn btn-primary" type="submit">가입</button>
 		</form>
-		
-		<a href="regular_ex7.jsp">다음예제</a>
+			<a href="regular_ex8.jsp">다음예제</a>
 	</div>
 	
 	<script>
@@ -49,8 +46,10 @@
 		$('#id').on('input',function(){
 			var inputId = $('#id').val();
 			isIdValid = reg_id.test(inputId);
+			//is-valid, is-invalid 클래스를 일단 제거후
+			$(this).removeClass('is-valid is-invalid');
 			if(isIdValid){
-				$(this).removeClass('is-invalid'); //bootstrap class
+				//is-invalid 클래스를 추가한다.
 				$(this).addClass('is-valid');
 			}else{
 				$(this).addClass('is-invalid');
@@ -60,12 +59,11 @@
 		$('#phone').on('input',function(){
 			var inputPhone = $('#phone').val();
 			isPhoneValid = reg_phone.test(inputPhone);
+			$(this).removeClass('is-valid is-invalid');
 			if(isPhoneValid){
-				$(this).removeClass('is-invalid');
 				$(this).addClass('is-valid');
 			}else{
 				$(this).addClass('is-invalid');
-				$(this).removeClass('was-validated');
 			}
 		});
 		

@@ -43,6 +43,13 @@
 			<li><a href="test/el_test.jsp">EL test</a></li>
 			<li><a href="test/jstl_test.jsp">jstl test</a></li>
 			<li><a href="test/regular_ex.jsp">정규표현식 테스트</a></li>
+			<li><a href="fortune">오늘의 운세[MVC패턴(모델2)]테스트</a></li> 
+			<!-- forward로 분업하는 형태를 모델2 mvc패턴라고 한다. 
+				model2는 <<처음 개발할때는 왔따리 갔다리 해야하느라 복잡하지만 유지보수가 용이함 , 보통 규모가 큰 개발할 때 
+				<<<<>>>> 모델1은 하나의 jsp 페이지에서 모든걸 처리하는 패턴  , 규모가 작을 때 -->
+			<li><a href="todo">할 일 목록보기[MVC패턴(모델2)]테스트</a></li>
+			<li><a href="file">파일 목록보기[MVC패턴(모델2)]테스트</a></li>
+			<li><a href="file_list">파일 목록보기[MVC패턴(모델2)]테스트</a></li>
 			<li><a href="test/test.jsp">test</a></li>
 		</ul>
 	</div>

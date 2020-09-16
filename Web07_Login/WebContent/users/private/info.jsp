@@ -19,7 +19,7 @@
 <%
 	String id = (String)session.getAttribute("id");
 	UsersDao dao = UsersDao.getInstance();
-	UsersDto dto = dao.getDate(id);
+	UsersDto dto = dao.getData(id);
 %>
 <body>
 	<div class="container">

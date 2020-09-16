@@ -20,17 +20,17 @@
 	dto.setNewPwd(newPwd);
 
 	UsersDao dao = UsersDao.getInstance();
-	boolean isValid = dao.updatePwd2(dto);
+// 	boolean isValid = dao.updatePwd2(dto);
 %>
 <body>
 
-<%if(isValid){ %>
+<%-- <%if(isValid){ %> --%>
 	<p>비밀 번호를 수정했습니다. <a href="${pageContext.request.contextPath }/users/private/info.jsp">확인</a></p>
-<%}else{ %>
+<%-- <%}else{ %> --%>
 	<p>
 		이번 비밀번호가 일치 하지 않습니다.
 		<a href="${pageContext.request.contextPath }/users/private/pwd_updateform.jsp">다시 시도</a>
 	</p>
-<%} %>
+<%-- <%} %> --%>
 </body>
 </html>
